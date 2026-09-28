@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="bgColor" type="text" placeholder="Enter a background color" />
+<input id="fColor" type="text" placeholder="Enter a font color" />
+<input id="textInput" type="text" placeholder="Enter a text" />
+<button id="submit" onclick="sumbitSquare()">Submit</button>
+<script>
+    
+    let model = {
+        Content:"",
+        bgColor:"",
+        fColor:"",
+        index:0
+    }
+    
+   async function sumbitSquare() {
+        model.index += 1;
+        model.bgColor = document.getElementById("bgColor").value;
+        model.fontColor = document.getElementById("fColor").value;
+        model.content = document.getElementById("textInput").value;
+        
+        const res = await fetch("/square",{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(model)
+        });
+        console.log(res.status, await res.json());
+    }
+    
+</script>
+</body>
+</html>

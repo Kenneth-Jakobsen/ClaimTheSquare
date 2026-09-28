@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimTheSquare", "ClaimTheSquare\ClaimTheSquare.csproj", "{54CC91E6-C8BB-4AAF-B825-DAFA47CD00E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimTheSquareAPI", "ClaimTheSquareAPI\ClaimTheSquareAPI.csproj", "{A69E6A8D-A7D0-4A94-AC78-23B8F233F7D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54CC91E6-C8BB-4AAF-B825-DAFA47CD00E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CC91E6-C8BB-4AAF-B825-DAFA47CD00E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CC91E6-C8BB-4AAF-B825-DAFA47CD00E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CC91E6-C8BB-4AAF-B825-DAFA47CD00E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69E6A8D-A7D0-4A94-AC78-23B8F233F7D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69E6A8D-A7D0-4A94-AC78-23B8F233F7D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69E6A8D-A7D0-4A94-AC78-23B8F233F7D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69E6A8D-A7D0-4A94-AC78-23B8F233F7D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
