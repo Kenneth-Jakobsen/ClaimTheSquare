@@ -1,1 +1,14 @@
-[{"Index":1,"Content":"hei","BgColor":"yellow","FontColor":"red"},{"Index":1,"Content":"hei 2","BgColor":"green","FontColor":"blue "}]
+[
+  {
+    "Index": 1,
+    "Content": "hello",
+    "BgColor": "yellow",
+    "FColor": null
+  },
+  {
+    "Index": 1,
+    "Content": "hello",
+    "BgColor": "yellow",
+    "FColor": "blue"
+  }
+]

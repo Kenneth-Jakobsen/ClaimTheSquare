@@ -23,13 +23,12 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 const string path = "squares.json";
-        
-app.MapGet("/square", (int index, string text, string bgColor, string fontColor) => new TextObject
+
+app.MapGet("/square", () =>
 {
-    Index =  index,
-    Content = text,
-    BgColor =  bgColor,
-    FontColor = fontColor
+    var squares = File.ReadAllText(path);
+    var json = JsonSerializer.Deserialize<TextObject>(squares);
+    return Results.Json(json);
 });
 
 app.MapPost("/square", (TextObject textObject) =>
@@ -37,10 +36,9 @@ app.MapPost("/square", (TextObject textObject) =>
     var squares = File.Exists(path)
         ? JsonSerializer.Deserialize<List<TextObject>>(File.ReadAllText(path)) ?? new()
         : new List<TextObject>();
-            
     squares.Add(textObject);
     File.WriteAllText(path, JsonSerializer.Serialize(squares));
     return Results.Ok(textObject);
 });
-        
+
 app.Run();

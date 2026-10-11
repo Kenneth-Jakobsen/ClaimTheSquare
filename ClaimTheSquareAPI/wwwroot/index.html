@@ -5,33 +5,44 @@
     <title>Title</title>
 </head>
 <body>
-<input id="bgColor" type="text" placeholder="Enter a background color" />
-<input id="fColor" type="text" placeholder="Enter a font color" />
-<input id="textInput" type="text" placeholder="Enter a text" />
+<input id="bgColor" type="text" placeholder="Enter a background color"/>
+<input id="fColor" type="text" placeholder="Enter a font color"/>
+<input id="textInput" type="text" placeholder="Enter a text"/>
 <button id="submit" onclick="sumbitSquare()">Submit</button>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
 <script>
     
-    let model = {
-        Content:"",
-        bgColor:"",
-        fColor:"",
-        index:0
-    }
     
-   async function sumbitSquare() {
+    import axios from "axios";
+
+    let model = {
+        Content: "",
+        bgColor: "",
+        fColor: "",
+        index: 0
+    }
+
+    async function sumbitSquare() {
         model.index += 1;
         model.bgColor = document.getElementById("bgColor").value;
-        model.fontColor = document.getElementById("fColor").value;
-        model.content = document.getElementById("textInput").value;
+        model.fColor = document.getElementById("fColor").value;
+        model.Content = document.getElementById("textInput").value;
+        axios.post("/square", model)
+            .then(res => {
+                console.log(res.data);
+            }).catch(err => console.log(err))
+            .finally(()=>{
+                console.log("SumbitSquare complete!");
+            });
         
-        const res = await fetch("/square",{
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(model)
-        });
-        console.log(res.status, await res.json());
     }
     
+    async function getSquare() {
+        axios.get("/square").then(res => {
+            console.log(res.data);
+        })
+    }
+
 </script>
 </body>
 </html>

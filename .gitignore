@@ -1,5 +1,36 @@
+# .NET build-output
 bin/
 obj/
 /packages/
+*.user
+*.suo
+TestResults/
+
+# Rider / ReSharper
 riderModule.iml
 /_ReSharper.Caches/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/shelf/
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.local.xml
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Node
+node_modules/
+
+# Hemmeligheter og lokale innstillinger
+.env
+.env.*
+appsettings.*.local.json
+secrets.json
+
+# OS-filer
+.DS_Store
+Thumbs.db
+desktop.ini
