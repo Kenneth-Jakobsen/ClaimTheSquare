@@ -27,7 +27,7 @@ const string path = "squares.json";
 app.MapGet("/square", () =>
 {
     var squares = File.ReadAllText(path);
-    var json = JsonSerializer.Deserialize<TextObject>(squares);
+    var json = JsonSerializer.Deserialize<List<TextObject>>(squares);
     return Results.Json(json);
 });
 

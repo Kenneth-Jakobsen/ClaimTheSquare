@@ -5,21 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<input id="bgColor" type="text" placeholder="Enter a background color"/>
-<input id="fColor" type="text" placeholder="Enter a font color"/>
-<input id="textInput" type="text" placeholder="Enter a text"/>
-<button id="submit" onclick="sumbitSquare()">Submit</button>
+<div id="app">
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
 <script>
-    
-    
-    import axios from "axios";
+    let model=[];
 
-    let model = {
-        Content: "",
-        bgColor: "",
-        fColor: "",
-        index: 0
+    function updateView() {
+        document.getElementById("app").innerHTML = `
+         <input id="bgColor" type="text" placeholder="Enter a background color"/>
+        <input id="fColor" type="text" placeholder="Enter a font color"/>
+        <input id="textInput" type="text" placeholder="Enter a text"/>
+        <button id="submit" onclick="sumbitSquare()">Submit</button>
+        <div>
+          ${drawList()}
+        </div>
+           `
     }
 
     async function sumbitSquare() {
@@ -31,17 +34,32 @@
             .then(res => {
                 console.log(res.data);
             }).catch(err => console.log(err))
-            .finally(()=>{
+            .finally(() => {
                 console.log("SumbitSquare complete!");
             });
-        
+        updateView();
+
     }
-    
-    async function getSquare() {
+    function drawList() {
+        getSquare();
+        console.log(model)
+        let html;
+        for (let i = 0; i < model.length; i++) {
+            html += `<ul>
+                <li>${model[i].Content}</li>
+                    </ul>`
+        }
+        return html;
+    }
+
+     async function getSquare() {
         axios.get("/square").then(res => {
-            console.log(res.data);
+            model = (res.data);
         })
+            .catch(err => console.log(err))
     }
+
+    updateView();
 
 </script>
 </body>
